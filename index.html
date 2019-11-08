@@ -4,23 +4,35 @@
   <meta charset="utf-8">
   <title>Mocha Tests</title>
   <link href="lib/mocha.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css">
 </head>
 
 <body>
 
 
   <!-- 👍 YOUR HTML HERE 👍 -->
-  <img id="inn" onclick="hero.health=10;">
-  <img id="dagger" onclick="hero.inventory.push({type: 'dagger', damage: 2});">
-  <img id="bag" onclick="hero.weapon = hero.inventory[0];">
+  <main>
+    <section id="game">
+      <div id="hero-info">
+        <img id="xena" src="images/Xena.png">
 
-  <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
-  <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+      </div>
 
-  <div id="mocha">
-    <!-- MOCHA TEST FEEDBACK WILL BE RENDERED HERE -->
-  </div>
+      <img id="inn" src="images/inn.png" onclick="rest(hero);">
+      <img id="dagger" src="images/dagger.png" onclick="pickUpItem(hero, {type: 'dagger', damage: 2});">
+      <img id="bag" src="images/bag.png" onclick="equipWeapon(hero);">
+    </section>
 
+    <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+    <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+
+    <div id="mocha">
+      <!-- MOCHA TEST FEEDBACK WILL BE RENDERED HERE -->
+    </div>
+  </main>
+  <footer>
+    <p>Made with ❤ at Codaisseur</p>
+  </footer>
   <script src="lib/chai.js"></script>
   <script src="lib/mocha.js"></script>
   <script src="lib/sinon.js"></script>

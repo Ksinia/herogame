@@ -1,0 +1,42 @@
+img {
+    max-width: 20%;
+    max-height: 100px;
+    display: block;
+    margin: auto;
+}
+#xena {
+    max-width: 50%;
+}
+body {
+    background: #293d3d;;
+    padding: 10px;
+    text-align: center;
+    font-family: Verdana;
+}
+
+#game {
+    background: white;
+    border-radius: 5px;
+    margin: 5px auto;
+    width: 95%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    min-height: 60%;
+    color: #293d3d;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+footer {
+    color: lightgray;
+}
+#hero-info {
+    border-radius: 5px;
+    border: 0.4px solid #293d3d;
+    min-width: 20%;
+    min-height: 100%;
+    margin-left: 2rem;
+    text-align: left;
+    padding: 1rem;
+}
