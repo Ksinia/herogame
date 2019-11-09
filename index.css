@@ -1,42 +1,67 @@
 img {
-    max-width: 20%;
     max-height: 100px;
     display: block;
     margin: auto;
 }
+#inn {
+    min-height: 70px;
+}
+#dagger {
+    max-height: 80px;
+    margin: 10px auto;
+}
+
 #xena {
-    max-width: 50%;
+    max-width: 60%;
 }
 body {
-    background: #293d3d;;
+    background: #293d3d;
     padding: 10px;
     text-align: center;
     font-family: Verdana;
 }
-
 #game {
     background: white;
     border-radius: 5px;
     margin: 5px auto;
-    width: 95%;
+    max-width: 95%;
     padding: 20px 0;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    flex-flow: row wrap;
     min-height: 60%;
     color: #293d3d;
     font-size: 14px;
     font-family: 'Courier New', Courier, monospace;
-    
 }
 footer {
     color: lightgray;
 }
-#hero-info {
+.game-part {
     border-radius: 5px;
-    border: 0.4px solid #293d3d;
+    border: 0.5px solid #293d3d;
     min-width: 20%;
     min-height: 100%;
     margin-left: 2rem;
     text-align: left;
     padding: 1rem;
+    margin: 1rem;
+}
+.killed {
+    filter: brightness(20%);
+    background: rgba(41, 61, 61, 0.5);
+}
+.enemy-info {
+    border-radius: 5px;
+    padding: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+h3 {
+    color: whitesmoke;
+}
+button {
+    margin-top: 1rem;
+}
+input {
+    border-radius: 5px;
 }
