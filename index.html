@@ -2,6 +2,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mocha Tests</title>
   <link href="lib/mocha.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" media="screen" href="index.css">
@@ -12,15 +13,34 @@
 
   <!-- 👍 YOUR HTML HERE 👍 -->
   <main>
+    <h3>Not very impressive game :)</h3>
     <section id="game">
-      <div id="hero-info">
-        <img id="xena" src="images/Xena.png">
 
+      <div class="game-part">
+        <div id="hero-info">
+          <img id="xena" src="images/Xena.png">
+        </div>
+        <div>
+          <form onsubmit="changeName(); return false">
+            <div class="formSection">
+              <label for="name">New name:</label>
+              <input type="text" id="new-name">
+            </div>
+            <div class="button">
+              <button type="default">Change name</button>
+            </div>
+          </form>
+        </div>
       </div>
 
-      <img id="inn" src="images/inn.png" onclick="rest(hero);">
-      <img id="dagger" src="images/dagger.png" onclick="pickUpItem(hero, {type: 'dagger', damage: 2});">
-      <img id="bag" src="images/bag.png" onclick="equipWeapon(hero);">
+      <div id="resources" class="game-part">
+        <img id="inn" src="images/inn.png" onclick="rest(hero);">
+        <img id="dagger" src="images/dagger.png" onclick="pickUpItem(hero, {type: 'dagger', damage: 2});">
+        <img id="bag" src="images/bag.png" onclick="equipWeapon(hero);">
+      </div>
+
+      <div id="enemy-area" class="game-part"></div>
+
     </section>
 
     <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
