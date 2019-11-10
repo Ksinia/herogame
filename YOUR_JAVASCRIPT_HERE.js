@@ -1,7 +1,15 @@
 let hero = {
     name: "Xena Warrior Princess", heroic: true, inventory: [], health: 10, weapon:
-        { type: "Sword", damage: 2 }
+        { type: "knife", damage: 2 }
 };
+
+let weaponList = [
+    { type: "knife", damage: 2, imgsrc: "images/knife.png" },
+    { type: "dagger", damage: 2, imgsrc: "images/dagger.png" },
+    { type: "spear", damage: 3, imgsrc: "images/spear.png" },
+    { type: "sword", damage: 4, imgsrc: "images/sword.png" },
+    { type: "bow", damage: 5, imgsrc: "images/bow.png" }
+]
 
 let enemies = [
     {
@@ -47,13 +55,18 @@ function rest(person) {
 function pickUpItem(person, weapon) {
     person.inventory.push(weapon);
     displayStats();
-    //Sorry, cannot remove the dagger from page when it picked up, otherwise will not pass the tests #14 and #15
-    // document.getElementById("dagger").remove();
-
+    if (document.getElementById(weapon.type)) {
+        document.getElementById(weapon.type).remove();
+    }
 }
 function equipWeapon(person) {
     if (person.inventory.length > 0) {
-        person.weapon = person.inventory[0];
+        const usedWeapon = person.weapon;
+        // person.weapon = person.inventory[0];
+        person.weapon = person.inventory.shift();
+        // if (!person.inventory.includes(usedWeapon)) {
+        person.inventory.push(usedWeapon);
+        // }
         displayStats();
     }
 }
@@ -131,7 +144,6 @@ function fight(event) {
     event.target.nextSibling.nextSibling.innerHTML = `Health: ${currentEnemy.health}`;
     const enemyDamage = currentEnemy.damage;
     hero.health -= enemyDamage;
-    console.log(hero.health);
     displayStats();
     // todo: i don't understand, why hero health does not show zero BEFORE alert
     if (currentEnemy.health <= 0) {
@@ -141,9 +153,9 @@ function fight(event) {
         if (currentLevel >= 3) {
             let al = alert("You won!");
             location.reload();
-            console.log(al.querySelector('button'))
             return
         }
+        giveWeapon(weaponList[currentLevel + 1]);
         currentEnemy = enemies[currentLevel];
         displayEnemy(currentEnemy);
     }
@@ -178,4 +190,15 @@ function doesNotPassAllValidations(name) {
         return true;
     }
     return false;
+}
+
+function giveWeapon(weapon) {
+    const newWeaponArea = document.getElementById("new-weapon");
+    const newWeapon = document.createElement("img");
+    newWeapon.src = weapon.imgsrc;
+    newWeapon.id = weapon.type;
+    newWeapon.onclick = function () {
+        pickUpItem(hero, { type: weapon.type, damage: weapon.damage })
+    }
+    newWeaponArea.appendChild(newWeapon);
 }
