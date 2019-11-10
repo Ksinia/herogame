@@ -35,7 +35,9 @@
 
       <div id="resources" class="game-part">
         <img id="inn" src="images/inn.png" onclick="rest(hero);">
-        <img id="dagger" src="images/dagger.png" onclick="pickUpItem(hero, {type: 'dagger', damage: 2});">
+        <div id="new-weapon">
+          <img id="dagger" src="images/dagger.png" onclick="pickUpItem(hero, {type: 'dagger', damage: 2});">
+        </div>
         <img id="bag" src="images/bag.png" onclick="equipWeapon(hero);">
       </div>
 
